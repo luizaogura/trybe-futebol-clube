@@ -9,7 +9,7 @@
 
 FROM node:16.14-alpine
 
-WORKDIR /app-frontend
+WORKDIR /app-backend
 
 COPY package*.json ./
 
@@ -17,6 +17,8 @@ RUN npm ci
 
 COPY . .
 
-EXPOSE 3000
+EXPOSE 3001
 
-CMD ["npm", "start"]
+ENTRYPOINT ["npm", "run"]
+
+CMD ["start"] 
