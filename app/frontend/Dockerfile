@@ -7,10 +7,9 @@
 # Configurar os comandos para iniciar a aplicação de acordo com as boas práticas
 # Dica: Leia a seção Docker e Docker-compose no README para mais informações
 
-
 FROM node:16.14-alpine
 
-WORKDIR /app-backend
+WORKDIR /app-frontend
 
 COPY package*.json ./
 
@@ -18,6 +17,6 @@ RUN npm ci
 
 COPY . .
 
-EXPOSE 3001
+EXPOSE 3000
 
-CMD ["npm", "run", "dev"]
+CMD ["npm", "start"]
