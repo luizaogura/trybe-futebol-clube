@@ -13,7 +13,7 @@ WORKDIR /app-frontend
 
 COPY package* ./ 
 
-RUN npm ci
+RUN npm install
 
 COPY . .
 
