@@ -6,14 +6,14 @@ class MatchesController {
     const { inProgress } = req.query;
     if (inProgress === 'true') {
       const filterMatches = await MatchesService.inProgress();
-      res.status(200).json(filterMatches);
+      return res.status(200).json(filterMatches);
     }
     if (inProgress === 'false') {
       const finished = await MatchesService.finishedMatches();
       return res.status(200).json(finished);
     }
     const matches = await MatchesService.findAll();
-    res.status(200).json(matches);
+    return res.status(200).json(matches);
   }
 
   public static async finishMatch(req: Request, res: Response) {

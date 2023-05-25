@@ -27,7 +27,7 @@ class MatchesService {
     return inProgress;
   }
 
-  static async finishedMatches() {
+  public static async finishedMatches() {
     const matches = await this.findAll();
     const finished = matches.filter((match) => match.inProgress === false);
     return finished;
