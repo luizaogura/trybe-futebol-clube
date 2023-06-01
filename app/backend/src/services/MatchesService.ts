@@ -6,16 +6,8 @@ class MatchesService {
     const matches = await Match.findAll({
       attributes: { exclude: ['home_team_id', 'away_team_id'] },
       include: [
-        {
-          model: Team,
-          as: 'homeTeam',
-          attributes: { exclude: ['id'] },
-        },
-        {
-          model: Team,
-          as: 'awayTeam',
-          attributes: { exclude: ['id'] },
-        },
+        { model: Team, as: 'homeTeam', attributes: { exclude: ['id'] } },
+        { model: Team, as: 'awayTeam', attributes: { exclude: ['id'] } },
       ],
     });
     return matches;
