@@ -94,4 +94,13 @@ describe('Testes para a rota Teams', () => {
     chai.expect(response.body).to.deep.equal(expectedResult);
     chai.expect(response.status).to.equal(200);
   });
+
+  it('teste da função findById', async () => {
+    sinon.stub(Team, 'findByPk').resolves(expectedResult[2] as Team);
+
+    const response = await chai.request(app).get("/teams/3");
+
+    chai.expect(response.body).to.deep.equal(expectedResult[2].id);
+    chai.expect(response.status).to.equal(200);
+  });
 });
